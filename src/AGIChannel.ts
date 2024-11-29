@@ -145,10 +145,10 @@ export class AGIChannel extends events.EventEmitter {
       let match = str.match(/(\d+)\s+result=(-?\d+)(?:\s+(.*))?/);
       if(match) {
         const [code, result, data] = match.slice(1);
-        return {code, result: Number(result), data};
+        return {code, result: Number(result), data: data ?? ""};
       }
       else if((match = str.match(/(\d+)-(.*)/))) {
-        return {code: match[1], result: 0, data: match[2]};
+        return {code: match[1], result: 0, data: match[2] ?? ""};
       }
     }
     catch(err) {

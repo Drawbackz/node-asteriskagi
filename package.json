@@ -1,6 +1,6 @@
 {
-  "name": "asteriskagi",
-  "version": "2.0.0",
+  "name": "@drawbackz/asteriskagi",
+  "version": "2.0.0-dev.1",
   "types": "lib/index.d.ts",
   "description": "NodeJS Fast AGI Server",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clearlyip/node-asteriskagi.git"
+    "url": "git+https://github.com/Drawbackz/node-asteriskagi.git"
   },
   "keywords": [
     "Asterisk",
@@ -22,9 +22,9 @@
   "author": "Corey S. McFadden",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clearlyip/node-asteriskagi/issues"
+    "url": "https://github.com/Drawbackz/node-asteriskagi/issues"
   },
-  "homepage": "https://github.com/clearlyip/node-asteriskagi#readme",
+  "homepage": "https://github.com/Drawbackz/node-asteriskagi#readme",
   "devDependencies": {
     "@types/node": "^22.10.0",
     "typescript": "^5.7.2"
