@@ -1,6 +1,6 @@
 {
   "name": "@drawbackz/asteriskagi",
-  "version": "2.0.0-dev.1",
+  "version": "2.0.0-dev.2",
   "types": "lib/index.d.ts",
   "description": "NodeJS Fast AGI Server",
   "main": "lib/index.js",
