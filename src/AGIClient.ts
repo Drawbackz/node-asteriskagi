@@ -73,10 +73,6 @@ export class AGIClient extends events.EventEmitter {
     return this.channel!.agi;
   }
 
-  get exec(){
-    return this.channel!.exec;
-  }
-
   toString = () => {
     let formattedCallerId = this.callerId.number || this.callerId.name;
     if(this.callerId.name !== formattedCallerId) {

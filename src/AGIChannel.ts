@@ -73,27 +73,26 @@ export class AGIChannel extends events.EventEmitter {
         return false;
       }
     },
-    command: (command: string) => this._sendAGI(command)
+    command: (command: string) => this._sendAGI(command),
+    exec: ChannelExecCommands.reduce((result, command) => {
+      return {
+        ...result,
+        [command]: async (args?: string) => result.command(command, args || "")
+      };
+    }, {
+      command: async (command: string, args?: string) => {
+        try {
+          this._currentOperation = command;
+          await this._sendAGI(`EXEC ${command}${args ? ` ${args}` : ""}`);
+          this._currentOperation = false;
+          return;
+        }
+        catch(err) {
+          return false;
+        }
+      }
+    } as ExecCommands)
   };
-
-  exec: ExecCommands = ChannelExecCommands.reduce((result, command) => {
-    return {
-      ...result,
-      [command]: async (args?: string) => result.command(command, args || "")
-    };
-  }, {
-    command: async (command: string, args?: string) => {
-      try {
-        this._currentOperation = command;
-        await this._sendAGI(`EXEC ${command}${args ? ` ${args}` : ""}`);
-        this._currentOperation = false;
-        return;
-      }
-      catch(err) {
-        return false;
-      }
-    }
-  } as ExecCommands);
 
   /**
    * Send FastAGI command to specified socket
