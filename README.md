@@ -32,17 +32,17 @@ agi.on("call", async (call) => {
   const { remoteServer, uniqueid, context, extension, priority, calleridname, callerid, channel } = call;
 
   call.on("hangup", () => {
-    console.log(`Hangup  ${remoteServer}/${channel}`);
+    console.log(`hangup  ${remoteServer}/${channel}`);
   });
 
   call.on("error", (err) => {
     console.error(`ERROR: ${remoteServer}/${channel}: ${err}`);
   });
 
-  await call.Answer();
-  await call.Playback("beep");
+  await call.answer();
+  await call.playback("beep");
   await call.SayAlpha("hello");
-  await call.Hangup();
+  await call.hangup();
 });
 ```
 
@@ -52,7 +52,7 @@ In Asterisk dialplan (assuming the Node server is running on the same machine):
 exten => 1234,1,AGI(agi://localhost:4573)
 ```
 
-## Commands
+## ExecCommands
 
 All standard Asterisk dialplan commands (as of 20.x) are accessible via the call object. (See 'Basic Usage' for examples.)
 

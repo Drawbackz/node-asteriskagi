@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs", 
-    "rootDir": "./", 
+    "module": "commonjs",
+    "rootDir": "./src",
     "outDir": "./lib",
+    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
